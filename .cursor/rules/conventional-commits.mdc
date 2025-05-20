@@ -1,7 +1,7 @@
 ---
-description: git commit rule
+description: 
 globs: 
-alwaysApply: false
+alwaysApply: true
 ---
 # Conventional Commits Rule
 
