@@ -34,7 +34,7 @@ package main
 
 import (
     "fmt"
-    "github.com/user/go-ssss"
+    "github.com/sawmills/go-ssss"
 )
 
 func main() {
