@@ -1,0 +1,33 @@
+---
+description: git commit rule
+globs: 
+alwaysApply: false
+---
+# Conventional Commits Rule
+
+All commit messages must be written in the **conventional commits** format.
+
+## Format
+A conventional commit message should follow this structure:
+
+```
+type(scope?): subject
+
+body?  
+footer?
+```
+
+- **type**: The type of change (e.g., feat, fix, docs, style, refactor, test, chore)
+- **scope**: (optional) The area of the codebase affected
+- **subject**: A short description of the change
+- **body**: (optional) A longer description
+- **footer**: (optional) Any references to issues or breaking changes
+
+### Example
+```
+feat(auth): add JWT authentication middleware
+
+Implements JWT-based authentication for all protected routes.
+
+BREAKING CHANGE: Old session-based authentication is removed.
+```
