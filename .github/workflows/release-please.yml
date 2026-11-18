@@ -13,9 +13,15 @@ permissions:
 jobs:
   test:
     # trunk-ignore(actionlint/runner-label): Existing Namespace profile
-    runs-on: namespace-profile-sawmills-runner
+    runs-on: "${{ vars.RUNNER_PROVIDER == 'runson' && format('runs-on={0}/cpu=4/ram=8/family=c8a.xlarge/image=ubuntu24-full-x64/spot=false/retry=false/ssh=false/extras=s3-cache', github.run_id) || 'namespace-profile-sawmills-runner' }}"
     steps:
       - uses: actions/checkout@v4
+
+      - name: Enable RunsOn cache and artifacts
+        if: "${{ vars.RUNNER_PROVIDER == 'runson' }}"
+        uses: runs-on/action@284bff869d4a825f778ac7c38e50f1e31ef198fd
+        with:
+          show_env: false
 
       - name: Set up Go
         uses: actions/setup-go@v5
